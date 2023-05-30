@@ -1,0 +1,3 @@
+﻿using GuessingGame;
+
+App.Run();
