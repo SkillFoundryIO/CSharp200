@@ -23,15 +23,15 @@ namespace TicTacToe.Tests
         public void PlaceSymbol_ValidPosition_PlacesSymbol()
         {
             var result = _gameManager.PlaceSymbol("X", 1);
-            Assert.AreEqual(PlacementResult.SymbolPlaced, result);
-            Assert.AreEqual("X", _gameManager.Grid[0]);
+            Assert.That(PlacementResult.SymbolPlaced, Is.EqualTo(result));
+            Assert.That("X", Is.EqualTo(_gameManager.Grid[0]));
         }
 
         [Test]
         public void PlaceSymbol_InvalidOffGrid_ReturnsInvalidOffGrid()
         {
             var result = _gameManager.PlaceSymbol("X", 10);
-            Assert.AreEqual(PlacementResult.InvalidOffGrid, result);
+            Assert.That(PlacementResult.InvalidOffGrid, Is.EqualTo(result));
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace TicTacToe.Tests
         {
             _gameManager.PlaceSymbol("X", 1);
             var result = _gameManager.PlaceSymbol("O", 1);
-            Assert.AreEqual(PlacementResult.InvalidOverlap, result);
+            Assert.That(PlacementResult.InvalidOverlap, Is.EqualTo(result));
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace TicTacToe.Tests
             _gameManager.PlaceSymbol("X", 1);
             _gameManager.PlaceSymbol("X", 2);
             var result = _gameManager.PlaceSymbol("X", 3);
-            Assert.AreEqual(PlacementResult.XWins, result);
+            Assert.That(PlacementResult.XWins, Is.EqualTo(result));
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace TicTacToe.Tests
             _gameManager.PlaceSymbol("O", 4);
             _gameManager.PlaceSymbol("O", 5);
             var result = _gameManager.PlaceSymbol("O", 6);
-            Assert.AreEqual(PlacementResult.OWins, result);
+            Assert.That(PlacementResult.OWins, Is.EqualTo(result));
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace TicTacToe.Tests
             _gameManager.PlaceSymbol("O", 7);
             _gameManager.PlaceSymbol("X", 8);
             var result = _gameManager.PlaceSymbol("X", 9);
-            Assert.AreEqual(PlacementResult.Draw, result);
+            Assert.That(PlacementResult.Draw, Is.EqualTo(result));
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace TicTacToe.Tests
             _gameManager.PlaceSymbol("X", 1);
             _gameManager.PlaceSymbol("X", 2);
             var result = _gameManager.PlaceSymbol("X", 3);
-            Assert.AreEqual(PlacementResult.XWins, result);
+            Assert.That(PlacementResult.XWins, Is.EqualTo(result));
         }
 
         [Test]
@@ -90,7 +90,7 @@ namespace TicTacToe.Tests
             _gameManager.PlaceSymbol("O", 2);
             _gameManager.PlaceSymbol("O", 5);
             var result = _gameManager.PlaceSymbol("O", 8);
-            Assert.AreEqual(PlacementResult.OWins, result);
+            Assert.That(PlacementResult.OWins, Is.EqualTo(result));
         }
 
         [Test]
@@ -101,7 +101,7 @@ namespace TicTacToe.Tests
             _gameManager.PlaceSymbol("O", 4);
             _gameManager.PlaceSymbol("X", 5);
             var result = _gameManager.PlaceSymbol("X", 9);
-            Assert.AreEqual(PlacementResult.XWins, result);
+            Assert.That(PlacementResult.XWins, Is.EqualTo(result));
         }
 
         [Test]
@@ -112,7 +112,7 @@ namespace TicTacToe.Tests
             _gameManager.PlaceSymbol("X", 4);
             _gameManager.PlaceSymbol("O", 5);
             var result = _gameManager.PlaceSymbol("O", 7);
-            Assert.AreEqual(PlacementResult.OWins, result);
+            Assert.That(PlacementResult.OWins, Is.EqualTo(result));
         }
     }
 }

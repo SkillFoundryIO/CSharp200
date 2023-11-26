@@ -9,43 +9,43 @@ namespace Battleship.Tests
         [Test]
         public void LettersToNumbers()
         {
-            Assert.AreEqual(1, CoordinateConverter.ConvertLetterToNumber("A"));
-            Assert.AreEqual(2, CoordinateConverter.ConvertLetterToNumber("B"));
-            Assert.AreEqual(3, CoordinateConverter.ConvertLetterToNumber("C"));
-            Assert.AreEqual(4, CoordinateConverter.ConvertLetterToNumber("D"));
-            Assert.AreEqual(5, CoordinateConverter.ConvertLetterToNumber("E"));
-            Assert.AreEqual(6, CoordinateConverter.ConvertLetterToNumber("F"));
-            Assert.AreEqual(7, CoordinateConverter.ConvertLetterToNumber("G"));
-            Assert.AreEqual(8, CoordinateConverter.ConvertLetterToNumber("H"));
-            Assert.AreEqual(9, CoordinateConverter.ConvertLetterToNumber("I"));
-            Assert.AreEqual(10, CoordinateConverter.ConvertLetterToNumber("J"));
+            Assert.That(1, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("A")));
+            Assert.That(2, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("B")));
+            Assert.That(3, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("C")));
+            Assert.That(4, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("D")));
+            Assert.That(5, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("E")));
+            Assert.That(6, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("F")));
+            Assert.That(7, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("G")));
+            Assert.That(8, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("H")));
+            Assert.That(9, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("I")));
+            Assert.That(10, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("J")));
         }
 
         [Test]
         public void InvalidLetter()
         {
-            Assert.AreEqual(-1, CoordinateConverter.ConvertLetterToNumber("asdf"));
+            Assert.That(-1, Is.EqualTo(CoordinateConverter.ConvertLetterToNumber("asdf")));
         }
 
         [Test]
         public void NumbersToLetters()
         {
-            Assert.AreEqual("A", CoordinateConverter.ConvertNumberToLetter(1));
-            Assert.AreEqual("B", CoordinateConverter.ConvertNumberToLetter(2));
-            Assert.AreEqual("C", CoordinateConverter.ConvertNumberToLetter(3));
-            Assert.AreEqual("D", CoordinateConverter.ConvertNumberToLetter(4));
-            Assert.AreEqual("E", CoordinateConverter.ConvertNumberToLetter(5));
-            Assert.AreEqual("F", CoordinateConverter.ConvertNumberToLetter(6));
-            Assert.AreEqual("G", CoordinateConverter.ConvertNumberToLetter(7));
-            Assert.AreEqual("H", CoordinateConverter.ConvertNumberToLetter(8));
-            Assert.AreEqual("I", CoordinateConverter.ConvertNumberToLetter(9));
-            Assert.AreEqual("J", CoordinateConverter.ConvertNumberToLetter(10));
+            Assert.That("A", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(1)));
+            Assert.That("B", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(2)));
+            Assert.That("C", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(3)));
+            Assert.That("D", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(4)));
+            Assert.That("E", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(5)));
+            Assert.That("F", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(6)));
+            Assert.That("G", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(7)));
+            Assert.That("H", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(8)));
+            Assert.That("I", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(9)));
+            Assert.That("J", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(10)));
         }
 
         [Test]
         public void InvalidNumber()
         {
-            Assert.AreEqual("", CoordinateConverter.ConvertNumberToLetter(42));
+            Assert.That("", Is.EqualTo(CoordinateConverter.ConvertNumberToLetter(42)));
         }
     }
 }

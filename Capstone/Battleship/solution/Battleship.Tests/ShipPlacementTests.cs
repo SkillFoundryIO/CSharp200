@@ -15,7 +15,7 @@ namespace Battleship.Tests
 
             ShipCoordinate start = new ShipCoordinate(1, 1);
             var result = gm.PlaceShip("Aircraft Carrier", 5, start, PlacementDirection.Vertical);
-            Assert.AreEqual(PlaceShipResult.Success, result);
+            Assert.That(PlaceShipResult.Success, Is.EqualTo(result));
         }
 
         [Test]
@@ -25,11 +25,11 @@ namespace Battleship.Tests
 
             ShipCoordinate ship1Start = new ShipCoordinate(1, 1);
             var result1 = gm.PlaceShip("Aircraft Carrier", 5, ship1Start, PlacementDirection.Vertical);
-            Assert.AreEqual(PlaceShipResult.Success, result1);
+            Assert.That(PlaceShipResult.Success, Is.EqualTo(result1));
 
             ShipCoordinate ship2Start = new ShipCoordinate(1, 2);
             var result2 = gm.PlaceShip("Destroyer", 2, ship2Start, PlacementDirection.Horizontal);
-            Assert.AreEqual(PlaceShipResult.ShipOverlap, result2);
+            Assert.That(PlaceShipResult.ShipOverlap, Is.EqualTo(result2));
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace Battleship.Tests
 
             ShipCoordinate start = new ShipCoordinate(1, 8);
             var result = gm.PlaceShip("Aircraft Carrier", 5, start, PlacementDirection.Vertical);
-            Assert.AreEqual(PlaceShipResult.ShipOffBoard, result);
+            Assert.That(PlaceShipResult.ShipOffBoard, Is.EqualTo(result));
         }
     }
 }

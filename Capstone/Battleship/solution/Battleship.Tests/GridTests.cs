@@ -32,7 +32,7 @@ namespace Battleship.Tests
 
             var result = gm.ProcessShot(new Coordinate(5, 5));
 
-            Assert.AreEqual(ShotResult.Miss, result);
+            Assert.That(ShotResult.Miss, Is.EqualTo(result));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace Battleship.Tests
 
             var result = gm.ProcessShot(new Coordinate(1, 1));
 
-            Assert.AreEqual(ShotResult.Hit, result);
+            Assert.That(ShotResult.Hit, Is.EqualTo(result));
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace Battleship.Tests
             gm.ProcessShot(new Coordinate(9, 10));
             var result = gm.ProcessShot(new Coordinate(10, 10));
 
-            Assert.AreEqual(ShotResult.HitAndSunk, result);
+            Assert.That(ShotResult.HitAndSunk, Is.EqualTo(result));
         }
 
         [Test]
@@ -88,7 +88,7 @@ namespace Battleship.Tests
             gm.ProcessShot(new Coordinate(9, 10));
             gm.ProcessShot(new Coordinate(10, 10));
 
-            Assert.AreEqual(true, gm.GameOver);
+            Assert.That(true, Is.EqualTo(gm.GameOver));
         }
     }
 }

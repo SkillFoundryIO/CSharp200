@@ -13,7 +13,7 @@ namespace GuessingGame.Tests
 
             var result = gm.ParseGuess(10);
 
-            Assert.AreEqual(GuessResult.Lower, result);
+            Assert.That(GuessResult.Lower, Is.EqualTo(result));
         }
 
         [Test]
@@ -23,7 +23,7 @@ namespace GuessingGame.Tests
 
             var result = gm.ParseGuess(3);
 
-            Assert.AreEqual(GuessResult.Higher, result);
+            Assert.That(GuessResult.Higher, Is.EqualTo(result));
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace GuessingGame.Tests
 
             var result = gm.ParseGuess(5);
 
-            Assert.AreEqual(GuessResult.Correct, result);
+            Assert.That(GuessResult.Correct, Is.EqualTo(result));
         }
     }
 }
