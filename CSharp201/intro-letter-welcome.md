@@ -4,6 +4,12 @@
 
 Letter to the learner. Content is updated as of January 2024.
 
+## Quote
+
+The more you practice, the better you get, the more freedom you have to create. 
+
+- Jocko Willink
+
 ## Letter
 
 **Dear Learner,**
