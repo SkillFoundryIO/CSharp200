@@ -1,2 +1,2 @@
-# CSharpOOP
-Examples and exercises for Object Oriented Programming in C#
+# C# 200 series
+Examples and exercises for the C# 200 series.
