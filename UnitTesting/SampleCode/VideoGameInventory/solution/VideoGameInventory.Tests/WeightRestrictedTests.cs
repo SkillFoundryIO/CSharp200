@@ -16,12 +16,13 @@ namespace VideoGameInventory.Tests
             var item = new Helm(); // Weight: 10
 
             var result = inventory.AddItem(item);
-            Assert.AreEqual(AddResult.Success, result);
 
+            Assert.That(result, Is.EqualTo(AddResult.Success));
+            
             var overweightItem = new Sword(); // Weight: 10
             var overweightResult = inventory.AddItem(overweightItem);
-
-            Assert.AreEqual(AddResult.Overweight, overweightResult);
+            
+            Assert.That(overweightResult, Is.EqualTo(AddResult.Overweight));
         }
 
         [Test]
@@ -30,14 +31,16 @@ namespace VideoGameInventory.Tests
             var inventory = new WeightRestrictedInventory(3, 20);
             var item1 = new Sword(); // Weight: 10
             var item2 = new HealthPotion(); // Weight: 1
-
+            
             var result1 = inventory.AddItem(item1);
-            Assert.AreEqual(AddResult.Success, result1);
-            Assert.AreEqual(10, inventory.CurrentWeight);
-
+            
+            Assert.That(result1, Is.EqualTo(AddResult.Success));
+            Assert.That(inventory.CurrentWeight, Is.EqualTo(10));
+            
             var result2 = inventory.AddItem(item2);
-            Assert.AreEqual(AddResult.Success, result2);
-            Assert.AreEqual(11, inventory.CurrentWeight);
+            
+            Assert.That(result2, Is.EqualTo(AddResult.Success));
+            Assert.That(inventory.CurrentWeight, Is.EqualTo(11));
         }
 
         [Test]
@@ -46,17 +49,19 @@ namespace VideoGameInventory.Tests
             var inventory = new WeightRestrictedInventory(3, 20);
             var item1 = new Sword(); // Weight: 10
             var item2 = new HealthPotion(); // Weight: 1
-
+            
             inventory.AddItem(item1);
             inventory.AddItem(item2);
-
+            
             var removedItem1 = inventory.RemoveItem(0);
-            Assert.AreEqual(item1, removedItem1);
-            Assert.AreEqual(1, inventory.CurrentWeight);
-
+            
+            Assert.That(removedItem1, Is.EqualTo(item1));
+            Assert.That(inventory.CurrentWeight, Is.EqualTo(1));
+            
             var removedItem2 = inventory.RemoveItem(1);
-            Assert.AreEqual(item2, removedItem2);
-            Assert.AreEqual(0, inventory.CurrentWeight);
+            
+            Assert.That(removedItem2, Is.EqualTo(item2));
+            Assert.That(inventory.CurrentWeight, Is.EqualTo(0));
         }
 
         [Test]
@@ -64,11 +69,13 @@ namespace VideoGameInventory.Tests
         {
             var inventory = new WeightRestrictedInventory(1, 20);
             var item1 = new Sword(); // Weight: 10
-
+            
             inventory.AddItem(item1);
+            
             var result2 = inventory.AddItem(item1); // This should fail due to capacity
-            Assert.AreEqual(AddResult.ContainerFull, result2);
-            Assert.AreEqual(10, inventory.CurrentWeight);
+            
+            Assert.That(result2, Is.EqualTo(AddResult.ContainerFull));
+            Assert.That(inventory.CurrentWeight, Is.EqualTo(10));
         }
 
         [Test]
@@ -76,11 +83,13 @@ namespace VideoGameInventory.Tests
         {
             var inventory = new WeightRestrictedInventory(2, 20);
             var item1 = new Sword(); // Weight: 10
-
+            
             inventory.AddItem(item1);
+            
             var removedItem2 = inventory.RemoveItem(1); // This should fail due to no item at the given index
-            Assert.IsNull(removedItem2);
-            Assert.AreEqual(10, inventory.CurrentWeight);
+            
+            Assert.That(removedItem2, Is.Null);
+            Assert.That(inventory.CurrentWeight, Is.EqualTo(10));
         }
     }
 }

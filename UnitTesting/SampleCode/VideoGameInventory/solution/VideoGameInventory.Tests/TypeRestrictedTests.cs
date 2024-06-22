@@ -14,10 +14,9 @@ namespace VideoGameInventory.Tests
         {
             var bandoleer = new PotionBandoleer();
             var item = new HealthPotion();
-
             var result = bandoleer.AddItem(item);
 
-            Assert.AreEqual(AddResult.Success, result);
+            Assert.That(result, Is.EqualTo(AddResult.Success));
         }
 
         [Test]
@@ -28,7 +27,7 @@ namespace VideoGameInventory.Tests
 
             var result = bandoleer.AddItem(item);
 
-            Assert.AreEqual(AddResult.WrongType, result);
+            Assert.That(result, Is.EqualTo(AddResult.WrongType));
         }
 
         [Test]
@@ -40,9 +39,9 @@ namespace VideoGameInventory.Tests
             var addResult = bandoleer.AddItem(item);
             var removedItem = bandoleer.RemoveItem(0);
 
-            Assert.AreEqual(AddResult.Success, addResult);
-            Assert.IsNotNull(removedItem);
-            Assert.AreEqual(item, removedItem);
+            Assert.That(addResult, Is.EqualTo(AddResult.Success));
+            Assert.That(removedItem, Is.Not.Null);
+            Assert.That(removedItem, Is.EqualTo(item));
         }
     }
 }

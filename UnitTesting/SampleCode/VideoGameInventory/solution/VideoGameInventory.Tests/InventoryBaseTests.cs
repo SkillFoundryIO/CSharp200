@@ -17,7 +17,7 @@ namespace VideoGameInventory.Tests
 
             var result = chest.AddItem(item);
 
-            Assert.AreEqual(AddResult.Success, result);
+            Assert.That(result, Is.EqualTo(AddResult.Success));
         }
 
         [Test]
@@ -28,9 +28,10 @@ namespace VideoGameInventory.Tests
             var item2 = new Helm();
 
             chest.AddItem(item1);
+
             var result = chest.AddItem(item2);
 
-            Assert.AreEqual(AddResult.ContainerFull, result);
+            Assert.That(result, Is.EqualTo(AddResult.ContainerFull));
         }
 
         [Test]
@@ -40,10 +41,11 @@ namespace VideoGameInventory.Tests
             var item = new HealthPotion();
 
             chest.AddItem(item);
+
             var removedItem = chest.RemoveItem(0);
 
-            Assert.IsNotNull(removedItem);
-            Assert.AreEqual(item, removedItem);
+            Assert.That(removedItem, Is.Not.Null);
+            Assert.That(removedItem, Is.EqualTo(item));
         }
 
         [Test]
@@ -52,7 +54,7 @@ namespace VideoGameInventory.Tests
             var chest = new Chest(2);
             var removedItem = chest.RemoveItem(-1);
 
-            Assert.IsNull(removedItem);
+            Assert.That(removedItem, Is.Null);
         }
 
         [Test]
@@ -62,9 +64,10 @@ namespace VideoGameInventory.Tests
             var item = new Sword();
 
             chest.AddItem(item);
+
             var removedItem = chest.RemoveItem(1);
 
-            Assert.IsNull(removedItem);
+            Assert.That(removedItem, Is.Null);
         }
 
         [Test]
@@ -74,10 +77,11 @@ namespace VideoGameInventory.Tests
             var item = new HealthPotion();
 
             chest.AddItem(item);
+
             var removedItem = chest.RemoveItem(0);
 
-            Assert.IsNotNull(removedItem);
-            Assert.IsNull(chest.RemoveItem(0));
+            Assert.That(removedItem, Is.Not.Null);
+            Assert.That(chest.RemoveItem(0), Is.Null);
         }
     }
 }
