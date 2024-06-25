@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using VideoGameInventory.UI.Containers;
-using VideoGameInventory.UI.Items.Armors;
 using VideoGameInventory.UI.Items.Potions;
 using VideoGameInventory.UI.Items.Weapons;
 
@@ -17,7 +16,7 @@ namespace VideoGameInventory.Tests
 
             var result = bandoleer.AddItem(item);
 
-            Assert.AreEqual(AddResult.Success, result);
+            Assert.That(AddResult.Success, Is.EqualTo(result));
         }
 
         [Test]
@@ -28,7 +27,7 @@ namespace VideoGameInventory.Tests
 
             var result = bandoleer.AddItem(item);
 
-            Assert.AreEqual(AddResult.WrongType, result);
+            Assert.That(AddResult.WrongType, Is.EqualTo(result));
         }
 
         [Test]
@@ -40,9 +39,9 @@ namespace VideoGameInventory.Tests
             var addResult = bandoleer.AddItem(item);
             var removedItem = bandoleer.RemoveItem(0);
 
-            Assert.AreEqual(AddResult.Success, addResult);
-            Assert.IsNotNull(removedItem);
-            Assert.AreEqual(item, removedItem);
+            Assert.That(AddResult.Success, Is.EqualTo(addResult));
+            Assert.That(removedItem, Is.Not.Null);
+            Assert.That(item, Is.EqualTo(removedItem));
         }
     }
 }
